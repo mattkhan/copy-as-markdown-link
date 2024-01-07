@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Copy as Markdown Link",
+  "version": "1.0",
+  "description": "Copy selections on webpages as markdown links.",
+  "permissions": ["activeTab", "clipboardWrite"],
+  "commands": {
+    "copyMarkdownLink": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      },
+      "description": "Copy selection in the current tab as a markdown link."
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
